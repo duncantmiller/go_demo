@@ -3,10 +3,18 @@ package hello
 import "testing"
 
 func TestSayHello(t *testing.T) {
-	want := "Hello, Foo!"
-	got := Say([]string{"Foo"})
+	subtests := []struct {
+		items  []string
+		result string
+	}{
+		{
+			result: "Hello, Go!",
+		},
+	}
 
-	if want != got {
-		t.Errorf("wanted %s, got %s", want, got)
+	for _, st := range subtests {
+		if s := Say(st.items); s != st.result {
+			t.Errorf("wanted %s [%v], got %s", st.result, st.items, s)
+		}
 	}
 }
