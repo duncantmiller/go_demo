@@ -1,3 +1,3 @@
-module github.com/duncantmiller/go_demo
+module main
 
 go 1.21.5
