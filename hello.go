@@ -1,7 +1,11 @@
 package hello
 
-import "fmt"
+import "strings"
 
-func Say(name string) string {
-	return fmt.Sprintf("Hello, %s!", name)
+func Say(names []string) string {
+	if len(names) == 0 {
+		names = []string{"Go"}
+	}
+
+	return "Hello, " + strings.Join(names, ", ") + "!"
 }
